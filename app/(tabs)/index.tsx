@@ -16,6 +16,10 @@ export default function HomeScreen() {
     router.push('/effects');
   };
 
+  const handleOpenProfile = () => {
+    router.push('/(tabs)/profile');
+  };
+
   return (
     <View style={styles.container}>
       {/* Camera Preview Container */}
@@ -39,7 +43,12 @@ export default function HomeScreen() {
           <View style={styles.captureButtonInner} />
         </TouchableOpacity>
 
-        <View style={styles.placeholderButton} />
+        <TouchableOpacity 
+          style={styles.profileButton}
+          onPress={handleOpenProfile}
+        >
+          <Ionicons name="person-circle" size={24} color="#000" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -55,6 +64,8 @@ const styles = StyleSheet.create({
     width: width,
     backgroundColor: '#FFFFFF',
     overflow: 'hidden',
+    borderBottomLeftRadius: 25, 
+    borderBottomRightRadius: 25,
   },
   cameraPlaceholder: {
     flex: 1,
@@ -93,8 +104,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     borderRadius: 33,
   },
-  placeholderButton: {
+  profileButton: {
     width: 52,
     height: 52,
+    borderRadius: 26,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
